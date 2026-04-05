@@ -17,6 +17,7 @@ export default function App() {
     ,Component:Userdetails},
     ]},
     {path:'/about',element:<div>this is about page</div>},
+    {path:'*',element:<span>404 Page not found</span>}
     
 ])
   return (
