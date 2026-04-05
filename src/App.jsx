@@ -5,6 +5,7 @@ import Root from './Root';
 import Mobile from './Mobile';
 import Header from './Header';
 import Users from './Users';
+import Userdetails from './Userdetails';
 export default function App() {
   let router = createBrowserRouter([
     {path:'/',Component:Root,children:[
@@ -12,8 +13,11 @@ export default function App() {
       {path:"mobile",Component:Mobile},
       {path:"header",Component:Header},
       {path:"users",loader:()=> fetch("https://jsonplaceholder.typicode.com/users"),Component:Users},
+      {path:"users/:id",loader:({params})=>fetch(`https://jsonplaceholder.typicode.com/users/${params.id}`)
+    ,Component:Userdetails},
     ]},
-    {path:'/about',element:<div>this is about page</div>}
+    {path:'/about',element:<div>this is about page</div>},
+    
 ])
   return (
    <RouterProvider router={router}>
